@@ -71,7 +71,7 @@ c	include 'histograms.inc'
 	read(5,'(a)') dbase_file
 	j=index(dbase_file,'/')
 	if (j.eq.0) then					!no path given
-	  write(filename,'(a)') 'infiles/'//dbase_file
+	  write(filename,'(a)') 'input/'//dbase_file
 	else
 	  write(filename,'(a)') dbase_file
 	endif
@@ -83,7 +83,7 @@ c	include 'histograms.inc'
 	endif
 	write(6,'(a10,a69)')'filename=',filename
 	if (i.gt.1) base=filename(j+1:i-1)
-        write(start_random_state_file,'(a)') 'outfiles/'//filename(j+1:i-1)//'_start_random_state.dat'
+        write(start_random_state_file,'(a)') 'OUTPUTS/'//filename(j+1:i-1)//'_start_random_state.dat'
 
 ! ... load and book input file
 
@@ -95,7 +95,7 @@ c	include 'histograms.inc'
 ! ... read the secondary dbase file.
 
 	if (extra_dbase_file.ne.' ') then	!new filename from dbase file
-	  write(filename,'(a)') 'infiles/'//extra_dbase_file
+	  write(filename,'(a)') 'input/'//extra_dbase_file
 	  i=index(filename,'.')
 	  j=index(filename,'/')
 	  if(i.eq.0) then		!add .inp if not included in filename

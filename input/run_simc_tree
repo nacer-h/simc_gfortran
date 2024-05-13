@@ -35,7 +35,7 @@ INPUTFILE=$1
 # Run ./simc with the provided input argument
 echo "Running simc with input argument: $INPUTFILE"
 ./simc << EOF
-${INPUTFILE}.inp
+${INPUTFILE}
 EOF
 
 cd ${SIMCPATH}/util/root_tree/

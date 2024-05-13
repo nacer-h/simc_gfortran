@@ -450,11 +450,11 @@ c	call time (timestring2(11:23))
 
 	i = index(base,' ')
 	genfile = ' '
-	write(genfile,'(a,''.gen'')') 'OUTPUTS/'//base(1:i-1)
+	write(genfile,'(a,''.gen'')') 'outfiles/'//base(1:i-1)
 	genifile = ' '
-	write(genifile,'(a,''.geni'')') 'OUTPUTS/'//base(1:i-1)
+	write(genifile,'(a,''.geni'')') 'outfiles/'//base(1:i-1)
 	histfile = ' '
-	write(histfile,'(a,''.hist'')') 'OUTPUTS/'//base(1:i-1)
+	write(histfile,'(a,''.hist'')') 'outfiles/'//base(1:i-1)
 	write(6,'(1x,''... writing '',a)') genfile
 
 	write(6,*) 'Come back soon!'
