@@ -1,0 +1,160 @@
+  1=HMS; 2=SHMS 
+  rates will be for SHMS
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 5.389  TH= 7.000  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.3365E+03  0.2081E+03  0.1075E+03  0.1056E+02  0.8426E+02  0.7880E+00
+  Rates 
+H  0.5513E+06  0.3410E+06  0.1761E+06  0.1731E+05  0.1380E+06  0.1291E+04
+T  0.8655E+06  0.3596E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 5.389  TH=10.000  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.6017E+02  0.3877E+02  0.2257E+02  0.2315E+01  0.2521E+02  0.1454E+00
+  Rates 
+H  0.9857E+05  0.6352E+05  0.3698E+05  0.3792E+04  0.4130E+05  0.2382E+03
+T  0.1768E+06  0.6755E+05
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 5.389  TH=13.000  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.9552E+01  0.6332E+01  0.3968E+01  0.3775E+00  0.6107E+01  0.1598E-01
+  Rates 
+H  0.1565E+05  0.1037E+05  0.6500E+04  0.6184E+03  0.1000E+05  0.2617E+02
+T  0.3215E+05  0.1102E+05
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 6.053  TH= 6.890  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.1453E+03  0.8845E+02  0.5457E+02  0.4047E+01  0.4098E+02  0.2409E+00
+  Rates 
+H  0.2673E+06  0.1628E+06  0.1004E+06  0.7447E+04  0.7541E+05  0.4433E+03
+T  0.4431E+06  0.1706E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 6.053  TH= 9.890  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.2062E+02  0.1309E+02  0.9002E+01  0.6829E+00  0.9782E+01  0.2955E-01
+  Rates 
+H  0.3794E+05  0.2409E+05  0.1656E+05  0.1257E+04  0.1800E+05  0.5438E+02
+T  0.7250E+05  0.2540E+05
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 6.053  TH= 6.000  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.2518E+03  0.1510E+03  0.8842E+02  0.6358E+01  0.5896E+02  0.3943E+00
+  Rates 
+H  0.4633E+06  0.2778E+06  0.1627E+06  0.1170E+05  0.1085E+06  0.7255E+03
+T  0.7345E+06  0.2902E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 6.755  TH= 8.480  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.1617E+02  0.9820E+01  0.7795E+01  0.3962E+00  0.7255E+01  0.1037E-01
+  Rates 
+H  0.3320E+05  0.2016E+05  0.1601E+05  0.8137E+03  0.1490E+05  0.2130E+02
+T  0.6410E+05  0.2100E+05
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 8.195  P= 6.755  TH= 6.000  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.9505E+02  0.5551E+02  0.3942E+02  0.1979E+01  0.2641E+02  0.8133E-01
+  Rates 
+H  0.1952E+06  0.1140E+06  0.8096E+05  0.4064E+04  0.5423E+05  0.1670E+03
+T  0.3304E+06  0.1182E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 6.183  P= 3.486  TH=10.280  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.5914E+03  0.3477E+03  0.1378E+03  0.1436E+02  0.2065E+03  0.4839E+00
+  Rates 
+H  0.6267E+06  0.3685E+06  0.1461E+06  0.1522E+05  0.2188E+06  0.5128E+03
+T  0.9916E+06  0.3842E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 6.183  P= 3.486  TH=13.280  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.1835E+03  0.1102E+03  0.4865E+02  0.4812E+01  0.9614E+02  0.1237E+00
+  Rates 
+H  0.1944E+06  0.1168E+06  0.5155E+05  0.5100E+04  0.1019E+06  0.1311E+03
+T  0.3479E+06  0.1220E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 6.183  P= 3.486  TH=16.280  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.5338E+02  0.3250E+02  0.1555E+02  0.1356E+01  0.4014E+02  0.2102E-01
+  Rates 
+H  0.5657E+05  0.3445E+05  0.1648E+05  0.1437E+04  0.4254E+05  0.2228E+02
+T  0.1156E+06  0.3590E+05
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 6.183  P= 4.983  TH= 8.480  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.8855E+02  0.4838E+02  0.3032E+02  0.1136E+01  0.3486E+02  0.2430E-02
+  Rates 
+H  0.1341E+06  0.7329E+05  0.4593E+05  0.1721E+04  0.5281E+05  0.3682E+01
+T  0.2329E+06  0.7501E+05
+  Input: 
+    Electron beam energy (5-19 GeV): 
+    Scattered particle momentum (GeV/c): 
+    Scattered angle (5-50 deg): 
+    Radiation length of target (%): 
+
+ E0= 6.183  P= 4.983  TH= 6.000  RL=4.610
+    pi+         pi-          K+          K-           p        pbar   nb/GeV-sr
+  0.3224E+03  0.1709E+03  0.9225E+02  0.3482E+01  0.7894E+02  0.2324E-01
+  Rates 
+H  0.4884E+06  0.2589E+06  0.1397E+06  0.5275E+04  0.1196E+06  0.3520E+02
+T  0.7477E+06  0.2642E+06
+  Input: 
+    Electron beam energy (5-19 GeV): 

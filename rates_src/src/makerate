@@ -1,0 +1,17 @@
+#/bin/sh
+f95 -c rates.f
+f95 -c h2model.f 
+f95 -c h2model_fit.f
+f95 -c h2model_liang.f
+f95 -c emcparm.f
+f95 -c f2glob.f
+f95 -c r1990.f
+f95 -c model.f
+f95 -c d2model_ioana.f
+f95 -c i_d2_model.f
+f95 -c f2allm.f
+f95 -c elastic.f
+
+f95 -o rates rates.o h2model.o h2model_fit.o h2model_liang.o emcparm.o f2glob.o r1990.o d2model_ioana.o i_d2_model.o f2allm.o model.o elastic.o
+
+#
