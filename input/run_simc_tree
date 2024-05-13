@@ -35,21 +35,26 @@ INPUTFILE=$1
 # Run ./simc with the provided input argument
 echo "Running simc with input argument: $INPUTFILE"
 ./simc << EOF
-${INPUTFILE}
+$INPUTFILE.inp
 EOF
 
 cd ${SIMCPATH}/util/root_tree/
-#cd /util/root_tree/
+source /apps/root/6.22.06/setroot_CUE.bash
+gmake clean
+gmake
 ./make_root_tree << EOF
 ${INPUTFILE}
 EOF
 
 cd ${SIMCPATH}
-mv worksim/$INPUTFILE.root OUTPUT/
+cp worksim/$INPUTFILE.root OUTPUT/
 
-#REACTION=$2
-#echo "Reaction selected: $2" 
-#cd recon_hcana/    
-#root -q -l "recon_hcana.C(\"$1\", \"$REACTION\" )"
+cd ${SIMCPATH}
+cp worksim/$INPUTFILE.hist OUTPUT/
+
+REACTION=$2
+echo "Reaction selected: $2" 
+cd recon_hcana/    
+root -q -l "recon_hcana.C(\"$1\", \"$REACTION\" )"
 
 exit 0

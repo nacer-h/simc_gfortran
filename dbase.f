@@ -83,7 +83,7 @@ c	include 'histograms.inc'
 	endif
 	write(6,'(a10,a69)')'filename=',filename
 	if (i.gt.1) base=filename(j+1:i-1)
-        write(start_random_state_file,'(a)') 'OUTPUTS/'//filename(j+1:i-1)//'_start_random_state.dat'
+        write(start_random_state_file,'(a)') 'worksim/'//filename(j+1:i-1)//'_start_random_state.dat'
 
 ! ... load and book input file
 
