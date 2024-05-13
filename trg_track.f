@@ -448,7 +448,7 @@ CGAW              B_field_z(iz,ir) = 0.0
 *
       SUBROUTINE trgDeriv(u,dudt,spect)
       IMPLICIT NONE
-      REAL*8 u(9),dudt(9)
+      REAL*8 u(6),dudt(9)
 * --  calculate the derivatives du(i)/dt for the runke kutta routine         
 *
 *     Parameter:

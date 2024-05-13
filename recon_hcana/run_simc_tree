@@ -1,0 +1,22 @@
+#! /bin/bash
+
+cd ../
+source /apps/root/6.22.06/setroot_CUE.bash
+make
+./simc << endofinput 2> "recon_hcana/log/$1.log"
+$1
+endofinput
+cd util/root_tree
+make
+./make_root_tree << endofinput
+$1
+endofinput
+cd ../../
+rm worksim/$1.bin
+
+cd recon_hcana/
+if [[ $2 -eq "" ]]; then
+    echo "No reaction provided, assuming heep" 
+    REACTION="heep"
+fi
+root "recon_hcana.C(\"$1\", \"$REACTION\" )"
