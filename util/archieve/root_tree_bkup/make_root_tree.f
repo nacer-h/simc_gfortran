@@ -19,7 +19,7 @@ C     Program to convert simc .bin file to root tree
       io=99
 
 c input filename
-      write(6,*) 'Enter filename to convert (without .bin extension)'
+      write(6,*) 'Enter filename to convert (without .bin extesntion)'
       read(5,*) rawname
       i=index(rawname,' ')
       filename='../../worksim/'//rawname(1:i-1)//'.bin'
