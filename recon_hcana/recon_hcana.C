@@ -1,7 +1,7 @@
 /*
  * Description:
  * ================================================================
- * Time-stamp: "2023-04-23 21:20:00 trottar"
+ * Time-stamp: "2024-04-14 20:35:11 trottar"
  * ================================================================
  *
  * Author:  Richard L. Trotta III <trotta@cua.edu>, Carlos Yero <cyero002@fiu.edu, cyero@jlab.org>
@@ -14,12 +14,13 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "TCutG.h"
 #include "recon_hcana.h"
 
 using namespace std;
 
 recon_hcana::recon_hcana(TString filename, TString reaction_str) {
-
+  
   ReadReaction(reaction_str);
   
   buildFileName(filename);
@@ -124,9 +125,11 @@ void recon_hcana::ProductionReadTree(){
   tree->SetBranchAddress("Q2", &Q2);
   tree->SetBranchAddress("W", &W);
   tree->SetBranchAddress("epsilon", &epsilon);
+  tree->SetBranchAddress("epscm", &epscm);  
   tree->SetBranchAddress("Em", &Em);
   tree->SetBranchAddress("Pm", &Pm);
   tree->SetBranchAddress("thetapq", &thetapq);
+  tree->SetBranchAddress("thetacm", &thetacm);
   tree->SetBranchAddress("phipq", &phipq);
   tree->SetBranchAddress("missmass", &missmass);
   tree->SetBranchAddress("mmnuc", &mmnuc);
@@ -180,9 +183,11 @@ void recon_hcana::ProductionReadTree(){
   newTree->Branch("Q2", &Q2, "Q2/F");
   newTree->Branch("W", &W, "W/F");
   newTree->Branch("epsilon", &epsilon, "epsilon/F");
+  newTree->Branch("epscm", &epscm, "epscm/F");  
   newTree->Branch("Em", &Em, "Em/F");
   newTree->Branch("Pm", &Pm, "Pm/F");
   newTree->Branch("thetapq", &thetapq, "thetapq/F");
+  newTree->Branch("thetacm", &thetacm, "thetacm/F");
   newTree->Branch("phipq", &phipq, "phipq/F");
   newTree->Branch("missmass", &missmass, "missmass/F");
   newTree->Branch("mmnuc", &mmnuc, "mmnuc/F");
@@ -206,6 +211,15 @@ void recon_hcana::ProductionReadTree(){
   newTree->Branch("phipqi", &phipqi, "phipqi/F");
   newTree->Branch("saghai", &saghai, "saghai/F");
   newTree->Branch("factor", &factor, "factor/F");
+  newTree->Branch("paero_z_det", &paero_z_det, "paero_z_det/F");
+  newTree->Branch("paero_x_det", &paero_x_det, "paero_x_det/F");
+  newTree->Branch("paero_y_det", &paero_y_det, "paero_y_det/F");  
+  newTree->Branch("phgcer_z_det", &phgcer_z_det, "phgcer_z_det/F");
+  newTree->Branch("phgcer_x_det", &phgcer_x_det, "phgcer_x_det/F");
+  newTree->Branch("phgcer_y_det", &phgcer_y_det, "phgcer_y_det/F");
+  newTree->Branch("pend_z_det", &pend_z_det, "pend_z_det/F");
+  newTree->Branch("pend_x_det", &pend_x_det, "pend_x_det/F");
+  newTree->Branch("pend_y_det", &pend_y_det, "pend_y_det/F");
   
   //newTree = tree->CloneTree();
   
@@ -265,9 +279,11 @@ void recon_hcana::HeepReadTree(){
   tree->SetBranchAddress("Q2", &Q2);
   tree->SetBranchAddress("W", &W);
   tree->SetBranchAddress("epsilon", &epsilon);
+  tree->SetBranchAddress("epscm", &epscm);  
   tree->SetBranchAddress("Em", &Em);
   tree->SetBranchAddress("Pm", &Pm);
   tree->SetBranchAddress("thetapq", &thetapq);
+  tree->SetBranchAddress("thetacm", &thetacm);
   tree->SetBranchAddress("phipq", &phipq);
   tree->SetBranchAddress("corrsing", &corrsing);
   tree->SetBranchAddress("Pmx", &Pmx);
@@ -310,9 +326,11 @@ void recon_hcana::HeepReadTree(){
   newTree->Branch("Q2", &Q2, "Q2/F");
   newTree->Branch("W", &W, "W/F");
   newTree->Branch("epsilon", &epsilon, "epsilon/F");
+  newTree->Branch("epscm", &epscm, "epscm/F");  
   newTree->Branch("Em", &Em, "Em/F");
   newTree->Branch("Pm", &Pm, "Pm/F");
   newTree->Branch("thetapq", &thetapq, "thetapq/F");
+  newTree->Branch("thetacm", &thetacm, "thetacm/F");
   newTree->Branch("phipq", &phipq, "phipq/F");
   newTree->Branch("corrsing", &corrsing, "corrsing/F");
   newTree->Branch("Pmx", &Pmx, "Pmx/F");
@@ -418,6 +436,11 @@ void recon_hcana::EventLoop(){
     SetCentralAngles(e_th, e_ph);
     TransportToLab(kf, hsxptar, hsyptar, kf_vec);
 
+    // Testing with ss(x)yptar
+    // Apply OOP offsets (p_oopcentral_offset = -0.00011)
+    //ssxptar = ssxptar - 0.00011;
+    //TransportToLab(kf, ssxptar, ssyptar, kf_vec);
+
     // cout << "kf_vec.X(): " << kf_vec.X() << endl;
     // cout << "kf_vec.Y(): " << kf_vec.Y() << endl;
     // cout << "kf_vec.Z(): " << kf_vec.Z() << endl;
@@ -445,9 +468,17 @@ void recon_hcana::EventLoop(){
 
     //Get Detected Particle 4-momentum
     SetCentralAngles(h_th, h_ph);
+    // Apply OOP offsets (p_oopcentral_offset = -0.00011)
+    ssxptar = ssxptar - 0.00011;    
     TransportToLab(Pf, ssxptar, ssyptar, Pf_vec);
-    
-    fX.SetVectM(Pf_vec, MP);       //SET FOUR VECTOR OF detected particle
+
+    if(reaction=="heep"){
+      fX.SetVectM(Pf_vec, MP);       //SET FOUR VECTOR OF detected particle
+    }else{
+      // For KaonLT, this is mk (kaon)
+      fX.SetVectM(Pf_vec, mk);       //SET FOUR VECTOR OF detected particle      
+    }
+      
     fB = fA1 - fX;                 //4-MOMENTUM OF UNDETECTED PARTICLE 
 
     Pmx_lab = fB.X();
@@ -479,7 +510,7 @@ void recon_hcana::EventLoop(){
 
     //Calculate Angles of q relative to x(detected proton) and b(recoil neutron)
     th_pq = xq.Theta();   //"theta_pq"                                       
-    ph_pq   = xq.Phi();   //"out-of-plane angle", "phi_pq"                                                                    
+    ph_pq   = xq.Phi();   //"out-of-plane angle", "phi_pq"
     th_nq = bq.Theta();   // theta_nq                                                                                                     
     ph_nq   = bq.Phi();   //phi_nq
 
@@ -496,21 +527,71 @@ void recon_hcana::EventLoop(){
     Pmy = p_miss.Y();   //out-of-plane component (Oop)
     Pmz = p_miss.Z();   //parallel component to +z
 
-    //M_recoil = sqrt( pow(nu+MD-Ep,2) - Pm*Pm );  //recoil mass (neutron missing mass)
-    M_recoil = fB.M(); //recoil mass (neutron missing mass)
-    MM2 = M_recoil * M_recoil;
+    M_recoil = fB.M(); //recoil mass (missing mass)
+    
+    // Missing Mass
+    missmass = sqrt(abs((Em*Em)-(Pm*Pm)));
 
-    //-----If H(e,e'p)
-    if(reaction=="heep"){
-      //M_recoil = sqrt(Em*Em - Pm*Pm);
-      M_recoil = fB.M(); //recoil mass (neutron missing mass)
-      MM2 = Em*Em - Pm*Pm;
-    }
+    MM2 = missmass * missmass;
 
     s = (fQ+fA).M2();
     t = (fQ-fX).M2();
     u = (fQ-fB).M2();
+
+    /************************
+     ------------------------
+     ---- Geometric cuts ----
+     ------------------------
+     ************************/
     
+    /*********************
+     **** End of SHMS ****
+     *********************/
+    // Variable to see geometric cuts at end of spectrometer
+    pend_z_det = 300.0; // Approx. end of SHMS (units of cm)
+    pend_x_det = ssxfp + pend_z_det*ssxpfp;
+    pend_y_det = ssyfp + pend_z_det*ssypfp;
+    
+    /**********************
+     **** SHMS AEROGEL ****
+     **********************/
+    paero_z_det = 231.0; // Front? of SHMS aerogel (units of cm), see PARAM/SHMS/AERO/KaonLT_PARAM/paero_geom.param
+    paero_x_det = ssxfp + paero_z_det*ssxpfp;
+    paero_y_det = ssyfp + paero_z_det*ssypfp;
+
+    if (
+	(InSIMCFilename.Contains("Q4p4W2p74")) || // High and low epsilon
+	(InSIMCFilename.Contains("Q3p0W3p14")) || // High and low epsilon
+	(InSIMCFilename.Contains("Q5p5W3p02"))    // High and low epsilon
+	){
+      
+      // SHMS Aero Geom for n = 1.011 (DEF-files/PRODUCTION/KaonLT_DEF/Paero_1p011/Offline_Physics_Coin_Cuts.def)
+      // shmsAeroxposalln    P.aero.xAtAero > -45 && P.aero.xAtAero < 45
+      // shmsAeroyposalln	   P.aero.yAtAero > -30 && P.aero.yAtAero < 30
+      paero_tray_cut = (paero_x_det > -45.0) & (paero_x_det < 45.0) & (paero_y_det > -30) & (paero_y_det < 30);
+      
+    }else{
+
+      // SHMS Aero Geom for n = All except 1.011 (see DEF-files/PRODUCTION/KaonLT_DEF/Offline_Physics_Coin_Cuts.def)
+      // shmsAeroxposalln    P.aero.xAtAero > -55 && P.aero.xAtAero < 55
+      // shmsAeroyposalln	   P.aero.yAtAero > -50 && P.aero.yAtAero < 50
+      paero_tray_cut = (paero_x_det > -55.0) & (paero_x_det < 55.0) & (paero_y_det > -50) & (paero_y_det < 50);
+
+    }
+    
+    /**********************
+     **** SHMS HGCer ****
+     **********************/
+    // HGCer Hole cut is now defined in lt_analysis script to be consistent with data procedure.
+    // These variables are used to apply such cut.
+    phgcer_z_det = 156.27; // Front? of SHMS HGcer (units of cm), see PARAM/SHMS/HGCER/KaonLT_PARAM/phgcer_geom.param
+    phgcer_x_det = ssxfp + phgcer_z_det*ssxpfp;
+    phgcer_y_det = ssyfp + phgcer_z_det*ssypfp;
+    
+    if (!(paero_tray_cut)){
+      //cout << "Event outside geometric acceptance..." << endl;
+      continue; // Skip events outside geometric acceptance
+    }
     
     //----------
     

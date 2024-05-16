@@ -34,8 +34,8 @@ class recon_hcana
   //Auxiliary Function Prototypes (obtained from hcana) to calculate Pmx, Pmy, Pmz in the Lab/q-frame correctly
   void GeoToSph( Double_t  th_geo, Double_t  ph_geo, Double_t& th_sph, Double_t& ph_sph);
   void SetCentralAngles(Double_t th_cent, Double_t ph_cent);
-  void TransportToLab( Double_t p, Double_t xptar, Double_t yptar, TVector3& pvect ); 
-  
+  void TransportToLab( Double_t p, Double_t xptar, Double_t yptar, TVector3& pvect );
+
   //Utilities Functions for String Parsing
   string getString(char x);
   vector <string> FindString(TString keyword, TString fname);
@@ -113,9 +113,11 @@ class recon_hcana
   Float_t Q2;
   Float_t W;
   Float_t epsilon;
+  Float_t epscm;
   Float_t Em;
   Float_t Pm;
   Float_t thetapq;
+  Float_t thetacm;
   Float_t phipq;
   Float_t corrsing;
   Float_t Pmx;
@@ -159,6 +161,9 @@ class recon_hcana
   Double_t Kp;                    //Kinetic Energy of detected particle (proton)
   Double_t Kn;                    //Kinetic Energy of recoil system (neutron)
   Double_t M_recoil;              //Missing Mass (neutron Mass)
+  Double_t MMpi;                   //Pion Missing Mass
+  Double_t MMK;                   //Kaon Missing Mass
+  Double_t MMp;                   //Proton Missing Mass
   Double_t MM2;                   //Missing Mass Squared
   Double_t E_recoil;              //Recoil Energy of the system (neutron total energy)
   Double_t En;                    //Same as above
@@ -265,6 +270,8 @@ class recon_hcana
   Double_t MD = 1.87561;      //deuteron mass
   Double_t MN = 0.939566;     //neutron mass
   Double_t me = 0.00051099;   //electron mass
+  Double_t mk = 0.493677;     //kaon mass
+  Double_t mpi = 0.139570;
   Double_t MAL = 25.131710;   //aluminum mass
   Double_t tgt_mass = MP;  // Manually set target mass to proton for LH2
 
@@ -280,10 +287,22 @@ class recon_hcana
   Double_t e_yMisPoint;
   Double_t h_xMisPoint;
   Double_t h_yMisPoint;
-
+  
   //Central Spec. Momenta
   Double_t e_Pcen;
   Double_t h_Pcen;
+
+  // Variable for geometric cuts
+  Float_t pend_z_det;
+  Float_t pend_x_det;
+  Float_t pend_y_det;  
+  Float_t paero_z_det;
+  Float_t paero_x_det;
+  Float_t paero_y_det;
+  bool paero_tray_cut;
+  Float_t phgcer_z_det;
+  Float_t phgcer_x_det;
+  Float_t phgcer_y_det;
   
 };
 
